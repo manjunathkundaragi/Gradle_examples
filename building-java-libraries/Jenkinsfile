@@ -16,7 +16,7 @@ node {
 	
 	}
 	stage('Deploy to Artifactory cloud'){
-    def server = Artifactory.server 'Manjunath'
+    def server = Artifactory.server 'manjuArtifactory'
     echo "$server"
     server.bypassProxy = true
     server.credentialsId = 'cloudArtifactory'
