@@ -8,17 +8,3 @@
  */
 
 rootProject.name = 'building-java-libraries'
-
-systemProp.https.proxyHost=proxy.cognizant.com
-systemProp.https.proxyPort=6050
-systemProp.https.proxyUser=cts\663587
-systemProp.https.proxyPassword=jan@2018
-
-systemProp.http.proxyHost=proxy.cognizant.com
-systemProp.http.proxyPort=6050
-systemProp.http.proxyUser=cts\663587
-systemProp.http.proxyPassword=jan@2018
-
-artifactory_user=admin
-artifactory_password=Pt4Wy7Rf3Ba7Fh
-artifactory_contextUrl=https://manjuk.jfrog.io/manjuk
