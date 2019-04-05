@@ -10,11 +10,12 @@ node {
 	stage('build'){
 	echo "************** Building the gradle file Started **************"
 	
-	bat script: "${gradle_Home}\\bin\\gradle clean"
+	bat script: "${gradle_Home}\\bin\\gradle clean build "
 	
 	echo "************** Building the gradle file Finished **************"
 	
 	}
+	
 	stage('Deploy to Artifactory cloud'){
     def server = Artifactory.server 'manjuArtifactory'
     echo "$server"
