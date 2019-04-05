@@ -1,0 +1,18 @@
+node {
+    
+    def gradle_Home
+	
+	stage('checkout'){
+	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/manjunathkundaragi/Gradle_examples.git']]])
+	gradle_Home = tool name: 'gradle', type: 'gradle'
+	}
+	
+	stage('build'){
+	echo "************** Building the gradle file Started **************"
+	
+	bat script: "${gradle_Home}\\bin\\gradle build"
+	
+	echo "************** Building the gradle file Finished **************"
+	
+	}
+}
