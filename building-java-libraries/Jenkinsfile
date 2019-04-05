@@ -10,7 +10,7 @@ node {
 	stage('build'){
 	echo "************** Building the gradle file Started **************"
 	
-	bat script: "${gradle_Home}\\bin\\gradle build"
+	bat script: "${gradle_Home}\\bin\\gradle clean"
 	
 	echo "************** Building the gradle file Finished **************"
 	
