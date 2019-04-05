@@ -15,4 +15,31 @@ node {
 	echo "************** Building the gradle file Finished **************"
 	
 	}
+	stage('Deploy to Artifactory cloud'){
+    def server = Artifactory.server 'Manjunath'
+    echo "$server"
+    server.bypassProxy = true
+    server.credentialsId = 'cloudArtifactory'
+    server.connection.timeout = 300
+    def uploadSpec = """{
+ "files": [
+  {
+    "pattern": "${WORKSPACE}/Jenkins_pipeline/building-java-libraries/build/libs/gradle-java-Project-0.2.0.jar",
+    "target": "Manjunath/"
+    }
+ ]
+   }"""
+server.upload spec: uploadSpec
+  } 
+  
+  stage('Deploy to Artifactory using gradle'){
+     //sh label: '', script: "curl -uadmin:APAtN1w4MuidS5RwTrPPwvSmQtr -T ${WORKSPACE}/build/libs/gradlePipelineDemo_forJavaProject-1.0.jar https://artifactoryg01dy.jfrog.io/artifactoryg01dyg01dy/libs-snapshot/com/sample/program/gradlePipelineDemo_forJavaProject/1.0"
+     if (isUnix()) {
+        echo "Running Artifactory from  Unix System"
+       sh "'${gradle_Home}/bin/gradle' artifactoryPublish"
+     } else {    
+     bat script: "${gradle_Home}\\bin\\gradle artifactoryPublish"   
+  }
+ }
+}
 }
