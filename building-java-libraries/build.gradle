@@ -34,6 +34,33 @@ repositories {
 }
 
 jar {
-    baseName = 'gs-gradle'
-    version =  '0.1.0'
+    baseName = 'gradle-java-Project'
+    version =  '0.2.0'
+}
+
+ artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'Manjunath'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true  
+       }
+       defaults {
+            publications ('mavenJava')
+        }
+    }
+  }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+	    //groupId packageName
+            //version = libraryVersion
+            //artifactId project.getName()
+            //artifact("$buildDir//libs//${project.getName()}-${version}.jar")
+        }
+    }
 }
