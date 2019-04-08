@@ -11,7 +11,7 @@ node {
 	echo "************** Building the gradle file Started **************"
 	
 	bat script: "${gradle_Home}\\bin\\gradle build "
-	
+	bat script: "${gradle_Home}\\bin\\gradle tasks --all "
 	echo "************** Building the gradle file Finished **************"
 	
 	}
