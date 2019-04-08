@@ -4,7 +4,7 @@ node {
 	
 	stage('checkout'){
 	checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/manjunathkundaragi/Gradle_examples.git']]])
-	gradle_Home = tool name: 'gradle5', type: 'gradle'
+	gradle_Home = tool name: 'gradle45', type: 'gradle'
 	}
 	
 	stage('build'){
